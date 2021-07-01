@@ -1,0 +1,66 @@
+﻿@model Model.Entity.Materials
+
+@{
+    ViewBag.Title = "New Materials";
+}
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MessageInitialRegister
+</div>
+
+@*@Html.EditorForModel()*@
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.MType, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MModel, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.MModel, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.MQuantity, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MObservation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.MObservation, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MIdOperator, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4" dropdown>
+                    @Html.DropDownListFor(model => model.MIdOperator, ViewBag.UserList as SelectList, "Select an ID", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            
+        </fieldset>
+
+        <div class="form-actions col-md-offset-2">
+            <input class="btn btn-primary" type="submit" name="btnsave" value="Save" />|
+            @Html.ActionLink("Return to list", "Index")
+        </div>
+    </div>
+
+}
+<div class="text-primary text-success text-center">
+    @ViewBag.MessageSuccessfully
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MessageError
+</div>
+
+

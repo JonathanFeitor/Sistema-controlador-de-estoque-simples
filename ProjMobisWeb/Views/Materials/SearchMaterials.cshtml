@@ -1,0 +1,68 @@
+﻿@using Model.Entity
+@model List<Materials>
+@{
+    ViewBag.Title = "Search Materials";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Search materials in the system</div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                <h2 style="text-align:center; font-family:Arial; font-weight:500;">Search materials</h2>
+                <fieldset>
+                    <div class="row" style="padding-bottom:8px;">
+                        <div class="form-group col-md-3">
+                            @Html.Label("Type", new { @class = "control-label col-md-6" })
+                            <div class="col-md-6">
+                                @Html.TextBox("txtType", null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            @Html.Label("Model", new { @class = "control-label col-md-6" })
+                            <div class="col-md-6">
+                                @Html.TextBox("txtModel", null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <input class="btn btn-primary btn-lg" type="submit" value="Search" />
+        }
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Code</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Quantity</th>
+        <th>Note</th>
+        <th>User ID</th>
+        <th>Date</th>
+        <th colspan="4">Operation</th>
+    </tr>
+    @foreach (var objMaterials in Model)
+    {
+<tr>
+    <th>@objMaterials.MCode</th>
+    <th>@objMaterials.MType</th>
+    <th>@objMaterials.MModel</th>
+    <th>@objMaterials.MQuantity</th>
+    <th>@objMaterials.MObservation</th>
+    <th>@objMaterials.MIdOperator</th>
+    <th>@objMaterials.MDate</th>
+    <td><a class="btn btn-success" href="~/Materials/Find/@objMaterials.MCode"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+    <td><a class="btn btn-info" href="~/Materials/Update/@objMaterials.MCode"><span class="fa fa-edit"></span></a></td>
+    <td><a class="btn btn-danger" href="~/Materials/Eliminate/@objMaterials.MCode"><span class="fa fa-book"></span></a></td>
+    <td><a class="btn btn-success" href="~/Materials/Movement/@objMaterials.MCode"><span class="fa fa-archive"></span></a></td>
+</tr>
+    }
+    <tr></tr>
+</table>
+
+
+

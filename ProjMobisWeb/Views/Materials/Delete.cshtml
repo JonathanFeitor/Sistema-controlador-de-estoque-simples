@@ -1,0 +1,60 @@
+﻿@model Model.Entity.Materials
+@{
+    ViewBag.Title = Model.MType;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/">Materials</a></li>
+    <li class="active">@(Model.MType)</li>
+
+</ol>
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MessageInitialEliminate
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Materials Information</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Code</dt>
+            <dd>@Model.MCode</dd>
+
+            <dt>Type</dt>
+            <dd>@Model.MType</dd>
+
+            <dt>Model</dt>
+            <dd>@Model.MModel</dd>
+
+            <dt>Quantity</dt>
+            <dd>@Model.MQuantity</dd>
+
+            <dt>Note</dt>
+            <dd>@Model.MObservation</dd>
+
+            <dt>User ID</dt>
+            <dd>@Model.MIdOperator</dd>
+
+            <dt>Date</dt>
+            <dd>@Model.MDate</dd>
+        </dl>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Return to list", "Index")
+        </div>
+    }
+</div>
+
+
+<div class="text-primary text-success text-center">
+    @ViewBag.MessageSuccessfullDelete
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MessageError
+</div>
+
+

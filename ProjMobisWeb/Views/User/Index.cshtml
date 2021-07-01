@@ -1,0 +1,42 @@
+﻿@model List<Model.Entity.User> 
+
+@{
+    ViewBag.Title = "User List";
+}
+
+<h2 class="text-center text-success">User List</h2>
+<div class="well well-sm"><a class="btn btn-primary" href="~/User/Create">New</a>
+    <a class="btn btn-info" href="~/User/SearchUser">Search</a>
+</div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="bg-primary">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th colspan="3">Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objUser in Model)
+        {
+        <tr>
+
+            <td>@objUser.ID</td>
+            <td>@objUser.Name</td>
+            <td>@objUser.Position</td>
+            <td>@objUser.Phone</td>
+            <td>@objUser.Date</td>
+            <td><a class="btn btn-success" href="~/User/Find/@objUser.ID"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            <td><a class="btn btn-info" href="~/User/Update/@objUser.ID"><span class="fa fa-edit"></span></a></td>
+            <td><a class="btn btn-danger" href="~/User/Eliminate/@objUser.ID"><span class="fa fa-book"></span></a></td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+
+

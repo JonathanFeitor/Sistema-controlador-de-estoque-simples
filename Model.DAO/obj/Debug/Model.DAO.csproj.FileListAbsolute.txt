@@ -1,0 +1,10 @@
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\bin\Debug\Model.DAO.exe.config
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\bin\Debug\Model.DAO.exe
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\bin\Debug\Model.DAO.pdb
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\obj\Debug\Model.DAO.csproj.AssemblyReference.cache
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\obj\Debug\Model.DAO.csproj.CoreCompileInputs.cache
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\obj\Debug\Model.DAO.exe
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\obj\Debug\Model.DAO.pdb
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\bin\Debug\Model.Entity.pdb
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\obj\Debug\Model.DAO.csproj.CopyComplete
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.DAO\bin\Debug\Model.Entity.dll

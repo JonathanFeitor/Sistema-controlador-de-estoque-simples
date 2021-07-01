@@ -1,0 +1,61 @@
+﻿@using Model.Entity
+@model List<User>
+@{
+    ViewBag.Title = "Search User";
+}
+    <div class="panel panel-default">
+        <div class="panel-heading">Search user in the system</div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                <div class="form-horizontal">
+                    <h2 style="text-align:center; font-family:Arial; font-weight:500;">Search user</h2>
+                    <fieldset>
+                        <div class="row" style="padding-bottom:8px;">
+                            <div class="form-group col-md-3">
+                                @Html.Label("ID", new { @class = "control-label col-md-6" })
+                                <div class="col-md-6">
+                                    @Html.TextBox("txtID", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                @Html.Label("Name", new { @class = "control-label col-md-6" })
+                                <div class="col-md-6">
+                                    @Html.TextBox("txtName", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                        </div> 
+                    </fieldset>
+                </div>
+
+                <input class="btn btn-primary btn-lg" type="submit" value="Search" />
+            }
+         </div>
+    </div>    
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th colspan="3">Operation</th>
+    </tr>
+    @foreach (var objUser in Model)
+    {
+        <tr>
+            <th>@objUser.ID</th>
+            <th>@objUser.Name</th>
+            <th>@objUser.Position</th>
+            <th>@objUser.Phone</th>
+            <th>@objUser.Date</th>
+            <td><a class="btn btn-success" href="~/User/Find/@objUser.ID"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            <td><a class="btn btn-info" href="~/User/Update/@objUser.ID"><span class="fa fa-edit"></span></a></td>
+            <td><a class="btn btn-danger" href="~/User/Eliminate/@objUser.ID"><span class="fa fa-book"></span></a></td>
+
+        </tr>
+    }
+    <tr></tr>
+</table>

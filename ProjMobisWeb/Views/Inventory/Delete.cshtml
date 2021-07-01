@@ -1,0 +1,66 @@
+﻿@model Model.Entity.Inventory
+@{
+    ViewBag.Title = Model.EType;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/">Inventory</a></li>
+    <li class="active">@(Model.EType)</li>
+
+</ol>
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MessageInitialEliminate
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Equipament Information</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Inventory Number</dt>
+            <dd>@Model.EInventory</dd>
+
+            <dt>Type</dt>
+            <dd>@Model.EType</dd>
+
+            <dt>Model</dt>
+            <dd>@Model.EModel</dd>
+
+            <dt>Serial Number</dt>
+            <dd>@Model.ESNumber</dd>
+
+            <dt>In use</dt>
+            <dd>@Model.ESEquipament</dd>
+
+            <dt>IP</dt>
+            <dd>@Model.EIP</dd>
+
+            <dt>Location</dt>
+            <dd>@Model.ELocation</dd>
+
+            <dt>Note</dt>
+            <dd>@Model.EDescription</dd>
+
+            <dt>User ID</dt>
+            <dd>@Model.EIdOperator</dd>
+        </dl>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Return to list", "Index")
+        </div>
+    }
+</div>
+
+
+<div class="text-primary text-success text-center">
+    @ViewBag.MessageSuccessfullDelete
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MessageError
+</div>
+
+

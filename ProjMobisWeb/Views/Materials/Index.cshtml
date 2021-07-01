@@ -1,0 +1,47 @@
+﻿@model List<Model.Entity.Materials>
+
+@{
+    ViewBag.Title = "Materials list";
+}
+
+<h2 class="text-center text-success">Materials List</h2>
+<div class="well well-sm">
+    <a class="btn btn-primary" href="~/Materials/Create">New</a>
+    <a class="btn btn-info" href="~/Materials/SearchMaterials">Search</a>
+</div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="bg-primary">
+            <th>MCode</th>
+            <th>Type</th>
+            <th>Model</th>
+            <th>Quantity</th>
+            <th>Note</th>
+            <th>User ID</th>
+            <th>Date</th>
+            <th colspan="4">Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objMaterials in Model)
+        {
+        <tr>
+
+            <td>@objMaterials.MCode</td>
+            <td>@objMaterials.MType</td>
+            <td>@objMaterials.MModel</td>
+            <td>@objMaterials.MQuantity</td>
+            <td>@objMaterials.MObservation</td>
+            <td>@objMaterials.MIdOperator</td>
+            <td>@objMaterials.MDate</td>
+            <td><a class="btn btn-success" href="~/Materials/Find/@objMaterials.MCode"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            <td><a class="btn btn-info" href="~/Materials/Update/@objMaterials.MCode"><span class="fa fa-edit"></span></a></td>
+            <td><a class="btn btn-danger" href="~/Materials/Eliminate/@objMaterials.MCode"><span class="fa fa-book"></span></a></td>
+            <td><a class="btn btn-success" href="~/Materials/Movement/@objMaterials.MCode"><span class="fa fa-archive"></span></a></td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+

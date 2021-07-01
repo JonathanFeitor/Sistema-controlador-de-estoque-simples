@@ -1,0 +1,95 @@
+﻿@model Model.Entity.Inventory
+
+@{
+    ViewBag.Title = "Delete form";
+}
+
+<h2>@ViewBag.MessageInitialEliminate</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EInventory, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.EInventory, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.EType, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EModel, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.EModel, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ESNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.ESNumber, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ESEquipament, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.ESEquipament, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EIP, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.EIP, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ELocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.ELocation, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.EDescription, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EIdOperator, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.EIdOperator, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-actions col-md-offset-2">
+                <input class="btn btn-primary" type="submit" name="btndelete" value="Delete" />|
+                @Html.ActionLink("Return to list", "Index")
+            </div>
+
+        </fieldset>
+    </div>
+
+}
+
+<div class="text-primary text-success text-center">
+    @ViewBag.MessageSuccessfullDelete
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MessageError
+</div>
+<script type="text/javascript">
+    function checkFieldCode() {
+        var code = document.getElementById("EInventory");
+        if (code.value != null) {
+            code.disabled = true;
+        }
+    }
+
+</script>
+
+

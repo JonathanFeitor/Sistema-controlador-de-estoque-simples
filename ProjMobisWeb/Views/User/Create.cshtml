@@ -1,0 +1,65 @@
+﻿@model Model.Entity.User
+@{
+    ViewBag.Title = "New User";
+}
+
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MessageInitial
+</div>
+
+@*@Html.EditorForModel()*@
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                </div>
+            </div>
+
+        </fieldset>
+
+        <div class="form-actions col-md-offset-2">
+            <input class="btn btn-primary" type="submit" name="btnsave" value="Save" />|
+            @Html.ActionLink("Return", "Index")
+        </div>
+    </div>
+
+}
+<div class="text-primary text-success text-center">
+    @ViewBag.MessageSuccess
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MessageError
+</div>
+
+

@@ -1,0 +1,55 @@
+﻿@model Model.Entity.User
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/">User</a></li>
+    <li class="active">@(Model.Name)</li>
+
+</ol>
+<div class="well well-sm text-primary text-center">
+    @ViewBag.MessageInitialEliminate
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Personal Information</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Código</dt>
+            <dd>@Model.ID</dd>
+
+            <dt>Password</dt>
+            <dd>@Model.Password</dd>
+
+            <dt>Name</dt>
+            <dd>@Model.Name</dd>
+
+            <dt>Position</dt>
+            <dd>@Model.Position</dd>
+
+            <dt>Phone</dt>
+            <dd>@Model.Phone</dd>
+
+            <dt>Date</dt>
+            <dd>@Model.Date</dd>
+        </dl>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Return to list", "Index")
+        </div>
+    }
+</div>
+
+
+<div class="text-primary text-success text-center">
+    @ViewBag.MessageSuccessfullDelete
+</div>
+<div class="text-primary text-danger text-center">
+    @ViewBag.MessageError
+</div>

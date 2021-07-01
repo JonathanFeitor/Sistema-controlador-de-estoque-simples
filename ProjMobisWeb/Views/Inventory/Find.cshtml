@@ -1,0 +1,52 @@
+﻿@model Model.Entity.Inventory
+
+@{
+    ViewBag.Title = Model.EType;
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/">Equipament</a></li>
+    <li class="active">@(Model.EType)</li>
+
+</ol>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Inventory information</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Inventory Number</dt>
+            <dd>@Model.EInventory</dd>
+
+            <dt>Type</dt>
+            <dd>@Model.EType</dd>
+
+            <dt>Model</dt>
+            <dd>@Model.EModel</dd>
+
+            <dt>Serial Number</dt>
+            <dd>@Model.ESNumber</dd>
+
+            <dt>In use</dt>
+            <dd>@Model.ESEquipament</dd>
+
+            <dt>IP</dt>
+            <dd>@Model.EIP</dd>
+
+            <dt>Location</dt>
+            <dd>@Model.ELocation</dd>
+
+            <dt>Note</dt>
+            <dd>@Model.EDescription</dd>
+
+            <dt>User ID</dt>
+            <dd>@Model.EIdOperator</dd>
+
+        </dl>
+    </div>
+    <div class="form-actions">
+        |@Html.ActionLink("Return to list", "Index")
+    </div>
+</div>
+
+
+
