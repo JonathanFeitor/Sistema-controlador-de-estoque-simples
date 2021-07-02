@@ -252,6 +252,7 @@
     <Content Include="Views\Materials\Eliminate.cshtml" />
     <Content Include="Views\Materials\Movement.cshtml" />
     <Content Include="Views\Movement\IndexSearch.cshtml" />
+    <Content Include="Views\Movement\MaterialsObtain.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

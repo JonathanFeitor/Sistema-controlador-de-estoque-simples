@@ -1,72 +1,92 @@
 ﻿@using Model.Entity
 @model List<Movement>
-@{
-    ViewBag.Title = "Report";
-}
 
-<div class="panel panel-default">
-    <div class="panel-heading">Report</div>
-    <div class="panel-body">
-        @using (Html.BeginForm())
-        {
-            <div class="form-horizontal">
-                <h2 style="text-align:center; font-family:Arial; font-weight:500;">Report</h2>
-                <fieldset>
-                    <div class="row" style="padding-bottom:8px;">
-                        <div class="form-group col-md-3">
-                            @Html.Label("Type", new { @class = "control-label col-md-6" })
-                            <div class="col-md-6">
-                                @Html.TextBox("txtType", null, new { @class = "form-control" })
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            @Html.Label("Model", new { @class = "control-label col-md-6" })
-                            <div class="col-md-6">
-                                @Html.TextBox("txtModel", null, new { @class = "form-control" })
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            @Html.Label("Date", new { @class = "control-label col-md-4" })
-                            <div class="col-md-8">
-                                <input class="form-control" id="date1" name="date1" type="date" />
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            @Html.Label("Date", new { @class = "control-label col-md-4" })
-                            <div class="col-md-8">
-                                <input class="form-control" id="date2" name="date2" type="date" />
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            <div>
-                <input class="btn btn-primary btn-lg" type="submit" value="Search" />
-            </div>
-         }
-    </div>
-</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Js/alertify.min.js"></script>
+<link href="~/Css/alertify.core.css" rel="stylesheet" />
+<link href="~/Css/alertify.default.css" rel="stylesheet" />
 
-<table class="table table-striped">
-    <tr>
-        <th>Type</th>
-        <th>Model</th>
-        <th>Quantity</th>
-        <th>Input/ Output</th>
-        <th>User ID</th>
-        <th>Date</th>
-    </tr>
-    @foreach (var objMovement in Model)
-    {
-        <tr>
-            <th>@objMovement.MMType</th>
-            <th>@objMovement.MMModel</th>
-            <th>@objMovement.MMQtt</th>
-            <th>@objMovement.MMUseInf</th>
-            <th>@objMovement.MMIdOperator</th>
-            <th>@objMovement.MMDate1</th>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("a[rel='pop-up']").click(function () {
+            var caracteristicas = "height=550,width=1000,scrollTo,resizable=1,scrollbars=1,location=0";
+            nueva = window.open(this.href, 'popup', caracteristicas);
+
+
+            return false;
+        });
+
+    });
+    
+     function MaterialsObtain(Materials) {
+         var watchclose = setInterval(function () {
+         $("#txtType").val(Materials.MType);
+         $("#txtModel").val(Materials.MType);
+         $("#MCode").val(Materials.MCode);
+     });
+</script>
+
+<a style="float:right;" class="btn btn-success" href="~/" target="_blank">Print report</a>
+
+<table id="IndexSearch" class="table">
+    <tbody>
+        <tr style="font-size:20px;">
+            <td>
+                Materials Details
+                <a href="~/Movement/MaterialsObtain" rel="pop-up">
+                    <input class="btn btn-warning btn-lg col-md-12" type="button" name="link_Materials" value="Search Materials" />
+                </a>
+            </td>
+        <tr style="font-size:20px;">
+
+            <td>Type <input style="font-size:20px; font-weight:500;" class="form-control" type="text" id="txtType" readonly required /></td>
+            <td>
+                Model
+                <input style="font-size:20px; font-weight:500;" class="form-control" type="text" id="txtModel" readonly required />
+            </td>
         </tr>
-    }
-    <tr>
-    </tr>
+        <tr style="font-size:20px;">
+            <td style="float:right; vertical-align:middle;">Select dates to search</td>
+            <td>
+                <div class="form-group col-md-12">
+                    <div class="col-md-6">
+                        <input id="date1" name="date1" type="date" />
+                    </div>
+                    <div class="col-md-6">
+                        <input id="date2" name="date2" type="date" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+    </tbody>
+
 </table>
+
+<input class="btn btn-primary btn-lg" type="submit" value="Search" />
+
+<h2>Movement List</h2>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Type</th>
+            <th>Model</th>
+            <th>Quantity</th>
+            <th>User ID</th>
+            <th>Date</th>
+        </tr>
+        @foreach (var objMovement in Model)
+        {
+            <tr>
+                <th>@objMovement.MMType</th>
+                <th>@objMovement.MMModel</th>
+                <th>@objMovement.MMQtt</th>
+                <th>@objMovement.MMIdOperator</th>
+                <th>@objMovement.MMDate1</th>
+            </tr>
+        }
+        <tr></tr>
+    </table>
+

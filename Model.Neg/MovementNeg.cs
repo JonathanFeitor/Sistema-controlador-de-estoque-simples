@@ -1,5 +1,6 @@
 ﻿using Model.DAO;
 using Model.Entity;
+using System;
 using System.Collections.Generic;
 
 namespace Model.Neg
@@ -19,7 +20,7 @@ namespace Model.Neg
         }
 
         public List<Movement> findByType(Movement objMovement)
-        {
+        { 
             return objMovementDAO.findByType(objMovement);
         }
     }

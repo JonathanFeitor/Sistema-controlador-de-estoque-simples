@@ -3,3 +3,4 @@ D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.Entity\bin\Debug\Model.Entity.dll
 D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.Entity\bin\Debug\Model.Entity.pdb
 D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.Entity\obj\Debug\Model.Entity.dll
 D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.Entity\obj\Debug\Model.Entity.pdb
+D:\SistemaWeb\MOBISweb\ProjMobisWeb\Model.Entity\obj\Debug\Model.Entity.csproj.AssemblyReference.cache
